@@ -58,9 +58,6 @@ class ViewController: UIViewController {
             answersLabel.heightAnchor.constraint(equalTo: cluesLabel.heightAnchor)
             ])
         
-        cluesLabel.backgroundColor = .red
-        answersLabel.backgroundColor = .blue
-        
         currentAnswer = UITextField()
         currentAnswer.translatesAutoresizingMaskIntoConstraints = false
         currentAnswer.placeholder = "Tap letters to guess"
@@ -109,10 +106,27 @@ class ViewController: UIViewController {
             buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
             ])
         
-        buttonsView.backgroundColor = .green
-        
         cluesLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         answersLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
+        
+        let width = 150
+        let height = 80
+        
+        for row in 0..<4 {
+            for column in 0..<5 {
+                let letterButton = UIButton(type: .system)
+                letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+                
+                letterButton.setTitle("WWW", for: .normal)
+                
+                let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
+                letterButton.frame = frame
+                
+                buttonsView.addSubview(letterButton)
+                
+                letterButtons.append(letterButton)
+            }
+        }
 
     }
     
