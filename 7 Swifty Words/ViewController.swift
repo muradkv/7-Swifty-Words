@@ -109,6 +109,9 @@ class ViewController: UIViewController {
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonsView)
         
+        buttonsView.layer.borderWidth = 1
+        buttonsView.layer.borderColor = UIColor.lightGray.cgColor
+        
         NSLayoutConstraint.activate([
             buttonsView.widthAnchor.constraint(equalToConstant: 720),
             buttonsView.heightAnchor.constraint(equalToConstant: 320),
