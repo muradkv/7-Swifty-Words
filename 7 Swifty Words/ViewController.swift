@@ -181,6 +181,9 @@ class ViewController: UIViewController {
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            showError()
+            clearTapped(sender)
         }
     }
     
@@ -242,6 +245,12 @@ class ViewController: UIViewController {
         for btn in letterButtons {
             btn.isHidden = false
         }
+    }
+    
+    func showError() {
+        let ac = UIAlertController(title: "Wrong!", message: "Incorrect guess. Please try again", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(ac, animated: true)
     }
 }
 
